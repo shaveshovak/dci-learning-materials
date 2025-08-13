@@ -3,7 +3,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 
 // Import Routes
-
+const authorsRouter = require('./routes/authors');
 
 const app = express();
 
@@ -18,6 +18,7 @@ app.get('/health_check', (req, res) => {
 })
 
 // API routes
+app.use('/api/authors', authorsRouter);
 
 // 404 handler 
 app.use((req, res) => {
