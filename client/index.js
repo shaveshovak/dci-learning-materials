@@ -20,9 +20,14 @@ async function fetchAuthors(params = {}) {
 
         const data = await res.json();
         console.log(data);
+
+        countBadge.textContent = data.total ?? (data ? data.length : 0);
+
         renderTable(data || []);
     } catch (err) {
         showAlert(err.message || 'Failed to load data')
+    } finally {
+        showLoading(false);
     }
 }
 
@@ -31,8 +36,30 @@ function showAlert(msg) {
     alertBox.classList.remove('d-none')
 }
 
-function renderTable () {
+function showLoading (show) {
+    loading.classList.toggle('d-none', !show)
+}
 
+function renderTable (items) {
+    tbody.innerHTML = items.map(a => {
+        const fullName = [a.firstName, a.lastName].filter(Boolean).join(' ');
+        const nationality = a.nationality || '-';
+        const birthDate = a.birthDate ? new Date(a.birthDate).toLocaleDateString() : '-';
+        const genres = (a.genres && a.genres.length) ? a.genres.join(', ') : '-';
+        const booksPublished = Number.isFinite(a.booksPublished) ? a.booksPublished : '-';
+
+        return `
+            <tr>
+                <td>${fullName}</td>
+                <td>${nationality}</td>
+                <td>${birthDate}</td>
+                <td>${genres}</td>
+                <td>${booksPublished}</td>
+            </td>
+        `
+
+    }).join('');
+    tableWrap.classList.toggle('d-none', items.length === 0);
 }
 
 fetchAuthors();
