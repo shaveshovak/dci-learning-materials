@@ -12,5 +12,19 @@ router.get('/:id', async (req, res) => {
 
 
 // GET ALL Elements
+router.get('/', async (req,res) => {
+    try {
+        const authors = await Author.find();
+        res.json(authors);
+    } catch (err) {
+        res.status(500).json({ error: 'Authors not found!' });
+    }
+})
+
+// DELETE 
+
+// POST
+
+// PUT or PATCH
 
 module.exports = router;
