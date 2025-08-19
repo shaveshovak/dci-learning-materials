@@ -1,13 +1,24 @@
-import Buttons from "./components/button/Button"
-import Home from "./pages/home/Home"
+import { useState } from "react"
+import Registration from "./components/registration/Registration"
+// import Buttons from "./components/button/Button"
+// import Home from "./pages/home/Home"
 
 const App = () => {
+  // const [bookCount, setBookCount] = useState(0); // State Hook
 
   return (
     <>
-      Hello World!
-      <Buttons />
-      <Home />
+      {/* 
+        <>
+          <p>Du hast {bookCount} mal geklickt.</p>
+          <button 
+            onClick={() => setBookCount(bookCount + 1)}
+          >Click</button>
+        </>
+        <Buttons />
+        <Home />
+      */} 
+     <Registration />
     </>
   )
 }
