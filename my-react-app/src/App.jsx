@@ -1,4 +1,5 @@
-import { useState } from "react"
+// bimport { useState } from "react"
+import EmailList from "./components/emails/Emails"
 import Registration from "./components/registration/Registration"
 // import Buttons from "./components/button/Button"
 // import Home from "./pages/home/Home"
@@ -19,6 +20,7 @@ const App = () => {
         <Home />
       */} 
      <Registration />
+     <EmailList />
     </>
   )
 }
