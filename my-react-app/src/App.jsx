@@ -1,4 +1,5 @@
 // bimport { useState } from "react"
+import { Link, Outlet } from "react-router-dom";
 import EmailList from "./components/emails/Emails"
 import Registration from "./components/registration/Registration"
 // import Buttons from "./components/button/Button"
@@ -21,6 +22,7 @@ const App = () => {
       */} 
      <Registration />
      <EmailList />
+     
     </>
   )
 }
