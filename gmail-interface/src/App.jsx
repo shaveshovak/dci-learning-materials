@@ -1,3 +1,4 @@
+import List from './components/list/List'
 import Navbar from './components/navbar/Navbar'
 
 const App = () => {
@@ -5,6 +6,7 @@ const App = () => {
   return (
     <>
       <Navbar />
+      <List />
     </>
   )
 }
