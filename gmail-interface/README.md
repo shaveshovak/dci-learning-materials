@@ -15,3 +15,6 @@
  - [Understand useState Hook](https://www.youtube.com/watch?v=V9i3cGD-mts&pp=ygURdXNlc3RhdGUgaW4gcmVhY3Q%3D)
  - [Understand useEffect Hook](https://www.youtube.com/watch?v=YxkcMszKEYY)
  - [CSS Modules](https://www.youtube.com/watch?v=Y1acnpuMBAw&pp=ygUXY3NzIG1vZHVsZXMgaW4gcmVhY3QganM%3D)
+
+## Goal to build
+<img width="948" height="555" alt="image" src="https://github.com/user-attachments/assets/394c45dc-63ca-4f98-bfa4-98835059275d" />
