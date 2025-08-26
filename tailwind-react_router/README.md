@@ -10,6 +10,8 @@ npm install react-router-dom
 ```
 
 ##### Router einrichten
+Öffne deine main.jsx (oder main.tsx, falls du TypeScript benutzt) und importiere den BrowserRouter
+
 ```bash
 import React from "react";
 import ReactDOM from "react-dom/client";
