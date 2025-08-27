@@ -17,6 +17,11 @@ export default function App() {
         title={'About us'}
       /> {" "} | {" "}
 
+      <LinkItem 
+        toUrl={'/news'}
+        title={'News'}
+      /> {" "} | {" "}
+
       {/* Direktes Link-Element von react-router-dom → führt zu /contact */}
       <Link to={'/contact'}>Contact</Link>
 
