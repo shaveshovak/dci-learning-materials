@@ -6,6 +6,7 @@ import About from "./about/About";     // "Über uns"-Seite
 import Contact from "./contact/Contact"; // Kontakt-Seite
 import NotFound from "./not-found/NotFound"; // Fallback-Seite (404)
 import News from "./news/News"; // Newsseite
+import NewsDetails from "./news-details/NewsDetails";
 
 // Definiert die Routen für die Anwendung
 const AppRoutes = () => {
@@ -20,6 +21,9 @@ const AppRoutes = () => {
 
                 {/* Route für "/news" */}
                 <Route path="/news" element={<News />}/>
+
+                {/* Route für "/news/id" */}
+                <Route path="/news/:id" element={<NewsDetails />}/>
 
                 {/* Route für "/contact" */}
                 <Route path="/contact" element={<Contact />}/>

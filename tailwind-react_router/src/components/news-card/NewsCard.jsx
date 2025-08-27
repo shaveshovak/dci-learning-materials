@@ -27,7 +27,12 @@ const NewsCard = ({
             <div className="relative aspect-[16/9] w-full overflow-hidden">
                 {
                     urlToImage ? (
-                        <img />
+                        <img 
+                            src={urlToImage}
+                            alt={title || sourceName}
+                            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.05]"
+                            loading="lazy"
+                        />
                     ) : (
                         <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-zinc-200 to-zinc-300 dark:from-zinc-800 dark:to-zinc-700">
                             <span className="text-gray-500 text-sm">No Image</span>
