@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import NewsCard from "../../components/news-card/NewsCard";
+import Header from "../../components/header/Header";
+import NavList from "../../components/nav-list/NavList";
 
 const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 
@@ -7,6 +9,8 @@ const  News = () => {
     const [news, setNews] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(true);
+
+    const newsLinks = ['Home', 'News']
 
     useEffect(() => {
         if(!API_KEY) {
@@ -53,21 +57,27 @@ const  News = () => {
         return () => controller.abort();
     }, [])
 
+
     return (
-       <div className="grid gap-6 p-4 sm:grid-cols-2 lg:grid-cols-3">
-            {
-                news.map((news, i) => {
-                    return (
-                        <NewsCard 
-                            key={i}
-                            newsItem={news}
-                            id={news.id}
-                        />
-                    )
-                    
-                })
-            }
-        </div>
+        <section>
+            <Header />
+            <NavList linkArr={newsLinks}/>
+            <div className="grid gap-6 p-4 sm:grid-cols-2 lg:grid-cols-3">
+                {
+                    news.map((news, i) => {
+                        return (
+                            <NewsCard 
+                                key={i}
+                                newsItem={news}
+                                id={news.id}
+                            />
+                        )
+                        
+                    })
+                }
+            </div>
+        </section>
+      
     )
 }
  

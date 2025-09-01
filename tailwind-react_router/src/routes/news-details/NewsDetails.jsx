@@ -24,6 +24,7 @@ const NewsDetails = () => {
             <h1>{newsItem.title}</h1>
             <img src={newsItem.urlToImage} alt={newsItem.title} />
             <p>{newsItem.description}</p>
+            <p>{newsItem.content}</p>
             <p>Id aus URL: {id}</p>
         </article>
     </> );

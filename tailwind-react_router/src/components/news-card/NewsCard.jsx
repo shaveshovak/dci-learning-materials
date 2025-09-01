@@ -103,7 +103,7 @@ const NewsCard = ({
 
                     <Link
                         to={`/news/${id}`}
-                        state={newsItem}
+                        state={{newsItem}} // 
                         className="inline-block rounded-lg bg-indigo-500 px-3 py-1.5 text-sm text-white hover:bg-indigo-700"
                     >
                         More
