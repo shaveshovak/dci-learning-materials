@@ -3,6 +3,7 @@ import AppRoutes from "./routes"; // Importiert die Routing-Konfiguration/Seiten
 import LinkItem from "./components/link-item/LinkItem"; // Eigene Komponente für Links
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
+import GoogleMap from "./components/google-map/GoogleMap";
 
 // Hauptkomponente der App
 export default function App() {

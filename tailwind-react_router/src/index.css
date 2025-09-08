@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+.bg-colour {
+  background: red
+}
+.swiper-pagination {
+}
+
+.swiper-button-next {
+}
+
+/* Controller design */
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 30px;
+  color: #000;
+}

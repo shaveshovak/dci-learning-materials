@@ -5,7 +5,7 @@ const NavList = ({ linkArr }) => {
         {
             linkArr.map((link) => {
                 return (
-                    <Link to={link.url}>{link.item}</Link>
+                    <Link to={link.url}>{link.item}</Link> 
                 )
             })
         }
