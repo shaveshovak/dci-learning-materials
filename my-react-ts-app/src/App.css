@@ -1,0 +1,42 @@
+/* To simplify, all styles are added here*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  height: 100vh;
+
+  .Listing {
+    background-color: antiquewhite;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+
+    * {
+      width: 100%;
+    }
+  }
+
+  .Editor {
+    flex-grow: 1;
+    padding: 1em;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+    }
+    textarea {
+      flex-grow: 1;
+    }
+    iframe {
+      flex-grow: 3;
+    }
+  }
+}
