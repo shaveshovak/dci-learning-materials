@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  background: lightblue;
+  font-family: system-ui, sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 10vh;
+  background: lightpink;
+  padding: 2em;
+}
+
+button {
+  width: 100%;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2em;
+  padding: 2em;
+
+  div {
+    background-color: lightgoldenrodyellow;
+    padding: 1em;
+    flex-basis: 130px;
+    flex-grow: 1;
+    flex-shrink: 0;
+
+    h2 {
+      margin-top: 0;
+    }
+  }
+}
