@@ -20,10 +20,21 @@ Er ist eine Alternative zu `useState`, insbesondere wenn:
 ### Grundidee
 `useReducer` arbeitet mit einem **Reducer** – einer Funktion, die den aktuellen Zustand (`state`) und eine Aktion (`action`) entgegennimmt und daraus den neuen Zustand berechnet.  
 
+### Beispiel in TypeScript (TSX)
+
 ```tsx
 import { useReducer } from "react";
 
-function reducer(state, action) {
+// Zustandstyp
+interface State {
+  count: number;
+}
+
+// Aktionstypen
+type Action = { type: "increment" } | { type: "decrement" };
+
+// Reducer-Funktion
+function reducer(state: State, action: Action): State {
   switch (action.type) {
     case "increment":
       return { count: state.count + 1 };
@@ -34,7 +45,7 @@ function reducer(state, action) {
   }
 }
 
-export default function Counter() {
+export default function Counter(): JSX.Element {
   const [state, dispatch] = useReducer(reducer, { count: 0 });
 
   return (
