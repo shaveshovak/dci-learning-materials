@@ -10,8 +10,16 @@ export type Experiment = {
   html: string;
 };
 
+export type test = {
+  isDone: boolean;
+  id: string;
+  title: string;
+  age: number;
+};
+
 const App = () => {
   const [experiments, setExperiments] = useState<Experiment[] | null>(null);
+
   const [selectedExperiment, setSelectedExperiment] =
     useState<Experiment | null>(null);
 
