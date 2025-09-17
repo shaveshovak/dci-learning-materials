@@ -1,69 +1,58 @@
-# React + TypeScript + Vite
+# Nützliche Links & Erklärung
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📚 Referenzen
 
-Currently, two official plugins are available:
+- [React: useReducer](https://react.dev/reference/react/useReducer)  
+- [MDN: structuredClone](https://developer.mozilla.org/en-US/docs/Web/API/Window/structuredClone)  
+- [MDN: Number.toFixed()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed)  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ⚛️ Erklärung: `useReducer` (auf Deutsch)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+`useReducer` ist ein React Hook, der es ermöglicht, komplexere Zustandslogik in funktionalen Komponenten zu verwalten.  
+Er ist eine Alternative zu `useState`, insbesondere wenn:
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Der Zustand viele Teilwerte hat.  
+- Die nächste Zustandsänderung stark von der vorherigen abhängt.  
+- Man die Zustandslogik klar strukturieren möchte.  
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### Grundidee
+`useReducer` arbeitet mit einem **Reducer** – einer Funktion, die den aktuellen Zustand (`state`) und eine Aktion (`action`) entgegennimmt und daraus den neuen Zustand berechnet.  
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Beispiel in TypeScript (TSX)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+```tsx
+import { useReducer } from "react";
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+// Zustandstyp
+interface State {
+  count: number;
+}
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+// Aktionstypen
+type Action = { type: "increment" } | { type: "decrement" };
+
+// Reducer-Funktion
+function reducer(state: State, action: Action): State {
+  switch (action.type) {
+    case "increment":
+      return { count: state.count + 1 };
+    case "decrement":
+      return { count: state.count - 1 };
+    default:
+      return state;
+  }
+}
+
+export default function Counter(): JSX.Element {
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
+
+  return (
+    <div>
+      <p>Zähler: {state.count}</p>
+      <button onClick={() => dispatch({ type: "increment" })}>+</button>
+      <button onClick={() => dispatch({ type: "decrement" })}>-</button>
+    </div>
+  );
+}
